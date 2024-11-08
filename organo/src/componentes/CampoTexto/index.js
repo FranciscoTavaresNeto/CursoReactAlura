@@ -1,20 +1,21 @@
-import { useState } from "react";
-import "./CampoTexto.css"
+import './CampoTexto.css'
 
 const CampoTexto = (props) => {
 
-    const [valor, setValor] = useState('')
+    const placeholderModificada = `${props.placeholder}...` 
 
     const aoDigitado = (evento) => {
         props.aoAlterado(evento.target.value)
     }
 
     return (
-        <div className ="campo-texto">
-            <label>{props.label}</label>
-            <input value={props.valor} onChange={aoDigitado}  placeholder={props.placeholder}/>
+        <div className="campo-texto">
+            <label>
+                {props.label}
+            </label>
+            <input value={props.valor} onChange={aoDigitado} required={props.obrigatorio} placeholder={placeholderModificada}/>
         </div>
     )
 }
-//required={props.obrigatorio}
+
 export default CampoTexto
